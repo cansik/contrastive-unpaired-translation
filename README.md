@@ -179,7 +179,10 @@ class Launcher(TmuxLauncher):
 
 ```
 
-
+### Convert to ONNX
+```
+python convert-to-onnx.py --dataroot ./datasets/demo --name demo --CUT_mode CUT --phase test --load_size 512 --crop_size 512
+```
 
 ### Apply a pre-trained CUT model and evaluate FID
 
