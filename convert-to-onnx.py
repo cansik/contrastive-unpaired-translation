@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
     # convert model
     print("exporting...")
-    dummy_input = Variable(torch.randn(1, 3, opt.crop_size, opt.crop_size)).cuda()
+    dummy_input = Variable(torch.randn(1, opt.input_nc, opt.crop_size, opt.crop_size)).cuda()
     torch.onnx.export(model.netG, dummy_input, f"{opt.name}.onnx")
     print("done!")
 
