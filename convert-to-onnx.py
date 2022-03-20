@@ -47,15 +47,13 @@ if __name__ == '__main__':
 
     # convert model
     print("exporting...")
-    dummy_input = Variable(torch.randn(1, 3, 512, 512)).cuda()
-    torch.onnx.export(model.netG, dummy_input, "human-back-texture-CUT-512.onnx")
+    dummy_input = Variable(torch.randn(1, 3, opt.crop_size, opt.crop_size)).cuda()
+    torch.onnx.export(model.netG, dummy_input, f"{opt.name}.onnx")
     print("done!")
 
-    exit()
-
     print("optimize")
-    src_onnx = 'human-back-texture-CUT-512.onnx'
-    opt_onnx = 'human-back-texture-CUT-512.opt.onnx'
+    src_onnx = f"{opt.name}.onnx"
+    opt_onnx = f"{opt.name}-optimized.onnx"
 
     # load model
     model = onnx.load(src_onnx)
