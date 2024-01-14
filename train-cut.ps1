@@ -2,7 +2,7 @@ param (
     [string]$name,
     [string]$dataroot,
     [int]$size = 512,
-    [int]$batch = 16
+    [int]$batch = 1
 )
 
 
